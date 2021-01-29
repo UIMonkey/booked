@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { BookService } from 'src/app/book.service';
-import { Book, IBook } from '../../book';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Observable } from 'rxjs';
+import { share, switchMap } from 'rxjs/operators';
+import { BookService } from '../../book.service';
+import { IBook } from '../../book';
 
 @Component({
   selector: 'app-book-details',
@@ -10,16 +12,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BookDetailsComponent implements OnInit {
 
-  book = new Book;
+  book$ = new Observable<IBook>();
 
   constructor(
     private bookService: BookService,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.book = this.bookService.getBookDetails(
-      this.activatedRoute.snapshot.params['id']
-    );
+
+    this.book$ = this.activatedRoute.params.pipe(
+      switchMap((params: Params) => this.bookService.getBookDetails(params['id'] || '')),
+      share()
+    )
   }
 
 }

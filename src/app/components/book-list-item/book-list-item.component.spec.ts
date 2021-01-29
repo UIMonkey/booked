@@ -11,6 +11,7 @@ describe('BookListItemComponent', () => {
   let bookListItemEl: HTMLElement;
 
   const mockBook: IBook = {
+    id: 'sdlifbwei',
     title: 'Book1',
     author: 'Terry Pratchett',
     subtitle: 'A book about something',

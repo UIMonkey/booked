@@ -37,8 +37,8 @@ export class BookService {
     return of(books);
   }
 
-  getBookDetails(id: string): IBook {
+  getBookDetails(id: string): Observable<IBook> {
     const book = books.find(book => book.id === id);
-    return book ? book : new Book();
+    return book ? of(book) : of(new Book());
   }
 }
