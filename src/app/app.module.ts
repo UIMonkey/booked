@@ -11,6 +11,9 @@ import { BookDetailsComponent } from './components/book-details/book-details.com
 import { BookListItemComponent } from './components/book-list-item/book-list-item.component';
 import { MytitlecasePipe } from './pipes/mytitlecase.pipe';
 
+import { appRoutes } from './routes';
+import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,7 @@ import { MytitlecasePipe } from './pipes/mytitlecase.pipe';
     BrowserModule,
     BrowserAnimationsModule,
     CommonModule,
+    RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     MatButtonModule
   ],

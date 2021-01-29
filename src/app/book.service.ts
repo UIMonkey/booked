@@ -4,18 +4,21 @@ import { Book, IBook } from './book';
 
 const books: IBook[] = [
   {
+    id: 'idaufbk192873',
     title: 'Book1',
     author: 'Terry Pratchett',
     subtitle: 'A book about something',
     price: 13.50,
   },
   {
+    id: 'vsojn234',
     title: 'Book2',
     author: 'JKRawling',
     subtitle: 'Another book',
     price: 6.4,
   },
   {
+    id: 'lfin3li4',
     title: 'Book3',
     author: 'A.nother',
     subtitle: 'A book, probably',
@@ -28,15 +31,14 @@ const books: IBook[] = [
 })
 export class BookService {
 
-  constructor(private http: HTTPCl)
+  constructor() {}
 
   getBooks(): Observable<IBook[]> {
     return of(books);
   }
 
   getBookDetails(id: string): IBook {
-    // const book = books.find(book => book.title === id);
-    // return book ? book : new Book();
-    return
+    const book = books.find(book => book.id === id);
+    return book ? book : new Book();
   }
 }
