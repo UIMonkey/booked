@@ -1,0 +1,3 @@
+<div *ngFor="let book of bookList$ | async" class="book-item">
+  <app-book-list-item [book]="book" (bookSelected)="bookSelected()"></app-book-list-item>
+</div>
