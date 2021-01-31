@@ -109,20 +109,4 @@ fdescribe('BookDetailsComponent', () => {
     const titleContent = bookDetailsEl.querySelector('h1');
     expect(titleContent?.textContent).toEqual(testBook.title);
   }));
-
-  it('should show book details after getBookDetails', () => {
-    // observable test quote value and complete(), after delay
-    const q$ = cold('---x|', { x: testBook });
-    // getQuoteSpy.and.returnValue( q$ );
-
-    // fixture.detectChanges(); // ngOnInit()
-    // expect(quoteEl.textContent).toBe('...', 'should show placeholder');
-
-    // getTestScheduler().flush(); // flush the observables
-
-    // fixture.detectChanges(); // update view
-
-    // expect(quoteEl.textContent).toBe(testQuote, 'should show quote');
-    // expect(errorMessage()).toBeNull('should not show error');
-  });
 });
